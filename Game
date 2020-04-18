@@ -1,9 +1,29 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
 int main(){
 
+  char option = ' ';
+
+  cout << "\nPlease choose what game you would like to play" << endl;
+  cout << "A. Blackjack" << endl;
+  cout << "B. Valorant" << endl;
+  cout << "Please enter A or B: ";
+  cin >> option;
+  
+  if (option == 'A' || option == 'a'){
+    // launch blackjack
+  }
+
+  else if (option == 'B' || option == 'b'){
+    // launch something else
+  }
+  
+  else {
+    cout << "Invalid option, please enter A or B" << endl;
+  }
 
   return 0;
 }
