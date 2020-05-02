@@ -299,7 +299,7 @@ int main(){
   cout << "\nPlease choose what game you would like to play" << endl;
   cout << "A. Higher or Lower" << endl;
   cout << "B. Snake" << endl;
-  cout << "C. Battleship << endl;
+  cout << "C. Battleship" << endl;
   cout << "Please enter A or B: ";
   cin >> option;
   
