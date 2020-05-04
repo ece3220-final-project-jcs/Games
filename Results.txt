@@ -1,0 +1,6 @@
+These are the amount of wins you have: 0
+These are the amount of losses you have: 1
+
+These are the amount of wins you have: 1
+These are the amount of losses you have: 1
+
