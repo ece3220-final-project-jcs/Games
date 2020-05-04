@@ -299,60 +299,40 @@ class Snake {
 int main() {
 	srand((unsigned)time(NULL));
 
-	char option = ' ';
+	setcursor(0, 0);
 
-	cout << "\nPlease choose what game you would like to play" << endl;
-	cout << "A. Higher or Lower" << endl;
-	cout << "B. Snake" << endl;
-	cout << "C. Battleship" << endl;
-	cout << "Please enter A or B: ";
-	cin >> option;
+	//PlaySound(TEXT("snake.wav"), NULL, SND_SYNC);
 
-	if (option == 'A' || option == 'a') {
-		// launch higher or lower
-	}
+	// testing
+	Snake snake;
+	char op = 'l';
 
-	if (option == 'B' || option == 'b') {
-		setcursor(0, 0);
+	do {
+		if (_kbhit()) {
+			op = _getch();
+		}
 
-		//PlaySound(TEXT("snake.wav"), NULL, SND_SYNC);
+		switch (op) {
+		case 'w':
+		case 'W':
+			snake.Up();
+			break;
+		case 's':
+		case 'S':
+			snake.Down();
+			break;
+		case 'a':
+		case 'A':
+			snake.Left();
+			break;
+		case 'd':
+		case 'D':
+			snake.Right();
+			break;
+		}
+		snake.Move();
 
-		// testing
-		Snake snake;
-		char op = 'l';
-
-		do {
-			if (_kbhit()) {
-				op = _getch();
-			}
-
-			switch (op) {
-			case 'w':
-			case 'W':
-				snake.Up();
-				break;
-			case 's':
-			case 'S':
-				snake.Down();
-				break;
-			case 'a':
-			case 'A':
-				snake.Left();
-				break;
-			case 'd':
-			case 'D':
-				snake.Right();
-				break;
-			}
-			snake.Move();
-
-		} while (op != 'e');
-	} 
-
-	if (option == 'C' || option == 'c') {
-		// launch battleship
-
-	}
-
+	} while (op != 'e');
+	
 	return 0;
 }
