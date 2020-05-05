@@ -723,7 +723,7 @@ do{
   }
   
   else if (option != 'e'){
-    cout << "Invalid option, please enter A or B" << endl;
+    cout << "Invalid option, please enter A, B or C" << endl;
   }
   
 }while (option != 'e');
