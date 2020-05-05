@@ -467,20 +467,23 @@ public:
 
 };
 
-
-
-
-
+// Main
 int main(){
 
   srand((unsigned)time(NULL));
   char option = ' ';
+  
+  cout << "\n\n\n\n\t\t\t\t\t\t\tFinal Project" << endl;
+  cout << "\n\t\t\t\tCreated by: Juan Martinez, Christian Kerbler, Sebastian Zheng" << endl;
+  cout << "\t\t\tThis program consist of three easy to play classic games you can choose to try out" << endl;
 
-  cout << "\nPlease choose what game you would like to play" << endl;
-  cout << "A. Higher or Lower" << endl;
-  cout << "B. Snake" << endl;
-  cout << "C. Battleship" << endl;
-  cout << "Please enter A, B, or C: ";
+do{
+  cout << "\n\n\t\t\t\t\tPlease choose what game you would like to play" << endl;
+  cout << "\n\n\t\t\t\t\t\t\tA. Higher or Lower" << endl;
+  cout << "\t\t\t\t\t\t\tB. Snake" << endl;
+  cout << "\t\t\t\t\t\t\tC. Battleship" << endl;
+  cout << "\n\t\t\t\t\t   Press 'e' if you wish to stop the program" << endl;
+  cout << "\n\n\t\t\t\t\t\tPlease enter A, B or C: ";
   cin >> option;
   
   if (option == 'A' || option == 'a'){
@@ -540,9 +543,6 @@ int main(){
 
     cout << "Thank you for playing!" << endl;
     cout << "Check out your 'Results' files to see your win/loss ratio!" << endl;
-
-    return 0;
- 
   }
 
   else if (option == 'B' || option == 'b'){
@@ -579,8 +579,6 @@ int main(){
 		snake.Move();
 
 	} while(op != 'e');
-
-	return 0;
   }
   
   else if (option == 'C' || option == 'c'){
@@ -638,9 +636,7 @@ int main(){
 			//Loop back through each ship type
 		}
 		//Loop back through each player
-	}
-
-	
+	}	
 
 	//Ready to play the game
 	gameRunning = true;
@@ -693,18 +689,17 @@ int main(){
 	system("cls");
 	cout << "\n\nCONGRATULATIONS!!!  PLAYER " << thisPlayer << " HAS WON THE GAME!\n\n\n\n";
 
-	system("pause");
-	return 0;
-    
+	system("pause");  
   }
   
-  else {
+  else if (option != 'e'){
     cout << "Invalid option, please enter A or B" << endl;
   }
+  
+}while (option != 'e');
 
   return 0;
 }
-
 
 bool GameOverCheck(int enemyPLAYER){
 	bool winner = true;
@@ -721,7 +716,6 @@ bool GameOverCheck(int enemyPLAYER){
 	//game over
 	return winner;
 }
-
 
 bool UserInputAttack(int& x, int& y, int theplayer){
 	cout << "\nPLAYER " << theplayer << ", ENTER COORDINATES TO ATTACK: ";
