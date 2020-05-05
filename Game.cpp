@@ -176,7 +176,7 @@ class Point {
 
 class Snake {
 	private:
-		Point* cell[100]; // array of points to represent snake
+		Point* cell[10000]; // array of points to represent snake
 		int size; // current size of the snake
 		char dir; // current direction of the snake
 		Point fruit;
@@ -191,7 +191,7 @@ class Snake {
 			size = 1; // default size
 			cell[0] = new Point(20,20); // default position
 			
-			for (int i = 1; i < 100; i++) {
+			for (int i = 1; i < 10000; i++) {
 				cell[i] = NULL;
 			}
 
