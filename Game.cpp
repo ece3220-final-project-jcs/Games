@@ -185,6 +185,9 @@ class Snake {
 		int started;
 		int blink; // fruit blinking
 		int time_counter = 0;
+		int score = 0;
+		char save = 'p';
+		string player = " ";
 	
 	public:
 		Snake() {
@@ -258,6 +261,26 @@ class Snake {
 				}
 				else {
 					cout << "\n\t\t\t\t\t\tGame Over" << endl;
+					cout << "\n\t\t\t\tWould you like to save your score? y or n: ";
+					cin >> save;
+					
+					if (save == 'y'){
+						cout << "\n\t\t\t\t\t\tPlease enter your name: ";
+						cin >> player;
+						
+						ofstream snakeFile;
+						snakeFile.open("Snake HighScores.txt");
+						
+						if (!snakeFile){
+							cout << "File could not be opened!" << endl;
+						}
+						
+						snakeFile << player << " : " << score << endl;
+						snakeFile.close();
+						
+						cout << "\n\tYour score has been saved to the text document Snake Highscores, go check it out if you want to see your score" << endl;
+					}
+					
 					cout << "\n\t\t\t\t\t\tPress any key to start";
 					_getch();
 					state = 1;
@@ -295,6 +318,7 @@ class Snake {
 				subCell(0, 0);
 				poison.SetPoint(rand() % MAXFRAMEX, rand() % MAXFRAMEY);
 				time_counter++;
+				score = score - 100;
 			}
 
 			// Make poison spawn randomly
@@ -308,6 +332,7 @@ class Snake {
 				addCell(0, 0);
 				fruit.SetPoint(rand() % MAXFRAMEX, rand() % MAXFRAMEY);
 				time_counter++;
+				score = score + 100;
 			}
 
 			// drawing the snake
@@ -329,7 +354,7 @@ class Snake {
 		
 			SetConsoleTextAttribute(console, 242);
 			//Debug();
-			Sleep(10);
+			Sleep(25);
 		}
 
 		int SelfCollision() {
@@ -345,6 +370,10 @@ class Snake {
 			for (int i = 0; i < size; i++) {
 				cell[i]->Debug(); 
 			}
+		}
+		
+		int getScore(){
+			return score;
 		}
 };
 
@@ -551,6 +580,8 @@ do{
     setcursor(0, 0);
     
     Snake snake;
+	Snake score;
+	int scoreKeeper;
 	char op = 'l';
 
 	do {
@@ -577,7 +608,6 @@ do{
 				break;
 		}
 		snake.Move();
-
 	} while(op != 'e');
   }
   
